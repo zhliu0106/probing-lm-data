@@ -41,26 +41,25 @@ class LRProbe(torch.nn.Module):
             opt.step()
 
         return probe
-    
+
 
 class ActDataset:
-    """
-    Class for storing activations and labels from datasets of statements.
-    """
-
     def __init__(self, dataset, dataset_name, model_name, layer_num, device):
         self.data = {}
         for layer in range(layer_num):
-            acts = self.collect_acts(
-                dataset_name, model_name, layer, device=device
-            )
+            acts = self.collect_acts(dataset_name, model_name, layer, device=device)
             labels = torch.Tensor([ex["label"] for ex in dataset]).to(device)
             self.data[layer] = acts, labels
 
     def collect_acts(
         self, dataset_name, model_name, layer, center=True, scale=True, device="cpu"
     ):
-        directory = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "acts", model_name, dataset_name)
+        directory = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            "acts",
+            model_name,
+            dataset_name,
+        )
         activation_files = glob(os.path.join(directory, f"layer_{layer}_*.pt"))
         acts = [
             torch.load(os.path.join(directory, f"layer_{layer}_{i}.pt")).to(device)
@@ -75,8 +74,6 @@ class ActDataset:
 
     def get(self, layer):
         return self.data[layer]
-
-
 
 
 def parse_args():
@@ -117,19 +114,9 @@ def set_seed(seed: int):
     torch.cuda.manual_seed_all(seed)
 
 
-def sweep(score, x):
-    """
-    Compute a ROC curve and then return the FPR, TPR, AUC.
-    """
-    fpr, tpr, _ = roc_curve(x, -score)
-    return fpr, tpr, auc(fpr, tpr)
-
-
 def compute_metrics(prediction, answers, print_result=True):
-    """
-    Generate the ROC curves by using ntest models as test models and the rest to train.
-    """
-    fpr, tpr, auc = sweep(np.array(prediction), np.array(answers, dtype=bool))
+    fpr, tpr, _ = roc_curve(np.array(answers, dtype=bool), -np.array(prediction))
+    auc = auc(fpr, tpr)
 
     tpr_5_fpr = tpr[np.where(fpr < 0.05)[0][-1]]
 
