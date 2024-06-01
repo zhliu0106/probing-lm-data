@@ -1,0 +1,104 @@
+***********************
+learning rate: 2.5e-3
+***********************
+[2024-06-01 22:17:21,249] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 22:17:24,351] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected CUDA_VISIBLE_DEVICES=0,1: setting --include=localhost:0,1
+[2024-06-01 22:17:24,412] [INFO] [runner.py:568:main] cmd = /public/home/ljt/anaconda3/envs/zhliu/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None src/ft_proxy_model_ds.py --model_path /public/home/ljt/hf_models/open_llama_13b --deepspeed ./ds_configs/ds_z3_offload_config.json --seed 42 --data_path ./data/arxiv_mia_train_real.jsonl --epochs 2 --per_device_train_batch_size 50 --gradient_accumulation_steps 1 --lr 2.5e-3
+[2024-06-01 22:17:29,584] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 22:17:32,489] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2024-06-01 22:17:32,489] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=2, node_rank=0
+[2024-06-01 22:17:32,489] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2024-06-01 22:17:32,489] [INFO] [launch.py:163:main] dist_world_size=2
+[2024-06-01 22:17:32,489] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2024-06-01 22:17:32,490] [INFO] [launch.py:253:main] process 144769 spawned with command: ['/public/home/ljt/anaconda3/envs/zhliu/bin/python', '-u', 'src/ft_proxy_model_ds.py', '--local_rank=0', '--model_path', '/public/home/ljt/hf_models/open_llama_13b', '--deepspeed', './ds_configs/ds_z3_offload_config.json', '--seed', '42', '--data_path', './data/arxiv_mia_train_real.jsonl', '--epochs', '2', '--per_device_train_batch_size', '50', '--gradient_accumulation_steps', '1', '--lr', '2.5e-3']
+[2024-06-01 22:17:32,491] [INFO] [launch.py:253:main] process 144770 spawned with command: ['/public/home/ljt/anaconda3/envs/zhliu/bin/python', '-u', 'src/ft_proxy_model_ds.py', '--local_rank=1', '--model_path', '/public/home/ljt/hf_models/open_llama_13b', '--deepspeed', './ds_configs/ds_z3_offload_config.json', '--seed', '42', '--data_path', './data/arxiv_mia_train_real.jsonl', '--epochs', '2', '--per_device_train_batch_size', '50', '--gradient_accumulation_steps', '1', '--lr', '2.5e-3']
+[2024-06-01 22:18:57,308] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 22:18:57,921] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 22:18:58,755] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-01 22:18:58,755] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-01 22:18:58,755] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+ninja: no work to do.
+Time to load cpu_adam op: 0.9254465103149414 seconds
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+ninja: no work to do.
+Time to load cpu_adam op: 0.6985373497009277 seconds
+Parameter Offload: Total persistent parameters: 414720 in 81 params
+[2024-06-01 22:20:49,998] [WARNING] [stage3.py:2069:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+{'train_runtime': 73.2236, 'train_samples_per_second': 2.731, 'train_steps_per_second': 0.027, 'train_loss': 39.97013473510742, 'epoch': 2.0}
+[2024-06-01 22:21:56,764] [INFO] [launch.py:348:main] Process 144770 exits successfully.
+[2024-06-01 22:22:56,824] [INFO] [launch.py:348:main] Process 144769 exits successfully.
+average dev auc: 0.4930
+
+MAX dev auc: 0.5901 in layer_18
+   test auc: 0.5330 in layer_18
+***********************
+learning rate: 3e-3
+***********************
+[2024-06-01 22:24:57,750] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 22:25:01,069] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected CUDA_VISIBLE_DEVICES=0,1: setting --include=localhost:0,1
+[2024-06-01 22:25:01,141] [INFO] [runner.py:568:main] cmd = /public/home/ljt/anaconda3/envs/zhliu/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None src/ft_proxy_model_ds.py --model_path /public/home/ljt/hf_models/open_llama_13b --deepspeed ./ds_configs/ds_z3_offload_config.json --seed 42 --data_path ./data/arxiv_mia_train_real.jsonl --epochs 2 --per_device_train_batch_size 50 --gradient_accumulation_steps 1 --lr 3e-3
+[2024-06-01 22:25:05,585] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 22:25:08,679] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2024-06-01 22:25:08,679] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=2, node_rank=0
+[2024-06-01 22:25:08,679] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2024-06-01 22:25:08,679] [INFO] [launch.py:163:main] dist_world_size=2
+[2024-06-01 22:25:08,679] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2024-06-01 22:25:08,680] [INFO] [launch.py:253:main] process 158140 spawned with command: ['/public/home/ljt/anaconda3/envs/zhliu/bin/python', '-u', 'src/ft_proxy_model_ds.py', '--local_rank=0', '--model_path', '/public/home/ljt/hf_models/open_llama_13b', '--deepspeed', './ds_configs/ds_z3_offload_config.json', '--seed', '42', '--data_path', './data/arxiv_mia_train_real.jsonl', '--epochs', '2', '--per_device_train_batch_size', '50', '--gradient_accumulation_steps', '1', '--lr', '3e-3']
+[2024-06-01 22:25:08,681] [INFO] [launch.py:253:main] process 158141 spawned with command: ['/public/home/ljt/anaconda3/envs/zhliu/bin/python', '-u', 'src/ft_proxy_model_ds.py', '--local_rank=1', '--model_path', '/public/home/ljt/hf_models/open_llama_13b', '--deepspeed', './ds_configs/ds_z3_offload_config.json', '--seed', '42', '--data_path', './data/arxiv_mia_train_real.jsonl', '--epochs', '2', '--per_device_train_batch_size', '50', '--gradient_accumulation_steps', '1', '--lr', '3e-3']
+[2024-06-01 22:26:32,458] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 22:26:33,052] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 22:26:33,756] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-01 22:26:33,756] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-01 22:26:33,756] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+ninja: no work to do.
+Time to load cpu_adam op: 0.8814198970794678 seconds
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+ninja: no work to do.
+Time to load cpu_adam op: 0.7160601615905762 seconds
+Parameter Offload: Total persistent parameters: 414720 in 81 params
+[2024-06-01 22:28:23,396] [WARNING] [stage3.py:2069:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+{'train_runtime': 72.026, 'train_samples_per_second': 2.777, 'train_steps_per_second': 0.028, 'train_loss': 38.72649002075195, 'epoch': 2.0}
+[2024-06-01 22:29:29,956] [INFO] [launch.py:348:main] Process 158141 exits successfully.
+[2024-06-01 22:30:32,020] [INFO] [launch.py:348:main] Process 158140 exits successfully.
+average dev auc: 0.4945
+
+MAX dev auc: 0.6007 in layer_30
+   test auc: 0.6241 in layer_30
+***********************
+learning rate: 3.5e-3
+***********************
+[2024-06-01 22:32:27,483] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 22:32:30,714] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected CUDA_VISIBLE_DEVICES=0,1: setting --include=localhost:0,1
+[2024-06-01 22:32:30,773] [INFO] [runner.py:568:main] cmd = /public/home/ljt/anaconda3/envs/zhliu/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None src/ft_proxy_model_ds.py --model_path /public/home/ljt/hf_models/open_llama_13b --deepspeed ./ds_configs/ds_z3_offload_config.json --seed 42 --data_path ./data/arxiv_mia_train_real.jsonl --epochs 2 --per_device_train_batch_size 50 --gradient_accumulation_steps 1 --lr 3.5e-3
+[2024-06-01 22:32:34,999] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 22:32:37,740] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2024-06-01 22:32:37,740] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=2, node_rank=0
+[2024-06-01 22:32:37,740] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2024-06-01 22:32:37,740] [INFO] [launch.py:163:main] dist_world_size=2
+[2024-06-01 22:32:37,740] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2024-06-01 22:32:37,741] [INFO] [launch.py:253:main] process 7875 spawned with command: ['/public/home/ljt/anaconda3/envs/zhliu/bin/python', '-u', 'src/ft_proxy_model_ds.py', '--local_rank=0', '--model_path', '/public/home/ljt/hf_models/open_llama_13b', '--deepspeed', './ds_configs/ds_z3_offload_config.json', '--seed', '42', '--data_path', './data/arxiv_mia_train_real.jsonl', '--epochs', '2', '--per_device_train_batch_size', '50', '--gradient_accumulation_steps', '1', '--lr', '3.5e-3']
+[2024-06-01 22:32:37,742] [INFO] [launch.py:253:main] process 7876 spawned with command: ['/public/home/ljt/anaconda3/envs/zhliu/bin/python', '-u', 'src/ft_proxy_model_ds.py', '--local_rank=1', '--model_path', '/public/home/ljt/hf_models/open_llama_13b', '--deepspeed', './ds_configs/ds_z3_offload_config.json', '--seed', '42', '--data_path', './data/arxiv_mia_train_real.jsonl', '--epochs', '2', '--per_device_train_batch_size', '50', '--gradient_accumulation_steps', '1', '--lr', '3.5e-3']
+[2024-06-01 22:33:48,002] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 22:33:48,800] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 22:33:49,377] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-01 22:33:49,377] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-06-01 22:33:49,633] [INFO] [comm.py:637:init_distributed] cdb=None
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+ninja: no work to do.
+Time to load cpu_adam op: 0.8946869373321533 seconds
+Time to load cpu_adam op: 0.7599215507507324 seconds
+Parameter Offload: Total persistent parameters: 414720 in 81 params
+[2024-06-01 22:35:37,922] [WARNING] [stage3.py:2069:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+{'train_runtime': 73.1644, 'train_samples_per_second': 2.734, 'train_steps_per_second': 0.027, 'train_loss': 36.88542938232422, 'epoch': 2.0}
+[2024-06-01 22:36:43,991] [INFO] [launch.py:348:main] Process 7876 exits successfully.
+[2024-06-01 22:37:45,053] [INFO] [launch.py:348:main] Process 7875 exits successfully.
+average dev auc: 0.4900
+
+MAX dev auc: 0.5665 in layer_12
+   test auc: 0.5577 in layer_12

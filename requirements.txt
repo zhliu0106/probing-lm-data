@@ -1,0 +1,11 @@
+datasets==2.19.0
+matplotlib==3.9.0
+numpy==1.26.4
+pandas==2.2.2
+scikit_learn==1.4.2
+torch==2.2.2
+tqdm==4.66.2
+transformers==4.41.0
+transformers.egg==info
+deepspeed==0.14.0
+bitsandbytes==0.42.0

@@ -1,0 +1,78 @@
+***********************
+learning rate: 8e-4
+***********************
+[2024-06-01 23:10:21,527] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 23:10:25,919] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected CUDA_VISIBLE_DEVICES=1: setting --include=localhost:1
+[2024-06-01 23:10:25,974] [INFO] [runner.py:568:main] cmd = /public/home/ljt/anaconda3/envs/zhliu/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None src/ft_proxy_model_ds.py --model_path /public/home/ljt/hf_models/TinyLlama-1.1B --deepspeed ./ds_configs/ds_z2_offload_config.json --seed 42 --data_path ./data/arxiv_mia_train_real.jsonl --epochs 2 --per_device_train_batch_size 50 --gradient_accumulation_steps 2 --lr 8e-4
+[2024-06-01 23:10:30,644] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 23:10:33,640] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [1]}
+[2024-06-01 23:10:33,640] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=1, node_rank=0
+[2024-06-01 23:10:33,640] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0]})
+[2024-06-01 23:10:33,640] [INFO] [launch.py:163:main] dist_world_size=1
+[2024-06-01 23:10:33,640] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=1
+[2024-06-01 23:10:33,641] [INFO] [launch.py:253:main] process 77996 spawned with command: ['/public/home/ljt/anaconda3/envs/zhliu/bin/python', '-u', 'src/ft_proxy_model_ds.py', '--local_rank=0', '--model_path', '/public/home/ljt/hf_models/TinyLlama-1.1B', '--deepspeed', './ds_configs/ds_z2_offload_config.json', '--seed', '42', '--data_path', './data/arxiv_mia_train_real.jsonl', '--epochs', '2', '--per_device_train_batch_size', '50', '--gradient_accumulation_steps', '2', '--lr', '8e-4']
+[2024-06-01 23:11:00,149] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 23:11:01,323] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-01 23:11:01,323] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+ninja: no work to do.
+Time to load cpu_adam op: 0.8693292140960693 seconds
+{'train_runtime': 12.1777, 'train_samples_per_second': 16.424, 'train_steps_per_second': 0.164, 'train_loss': 6.956932067871094, 'epoch': 2.0}
+[2024-06-01 23:11:36,699] [INFO] [launch.py:348:main] Process 77996 exits successfully.
+average dev auc: 0.4696
+
+MAX dev auc: 0.5339 in layer_6
+   test auc: 0.5671 in layer_6
+***********************
+learning rate: 9e-4
+***********************
+[2024-06-01 23:12:36,301] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 23:12:39,410] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected CUDA_VISIBLE_DEVICES=1: setting --include=localhost:1
+[2024-06-01 23:12:39,470] [INFO] [runner.py:568:main] cmd = /public/home/ljt/anaconda3/envs/zhliu/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None src/ft_proxy_model_ds.py --model_path /public/home/ljt/hf_models/TinyLlama-1.1B --deepspeed ./ds_configs/ds_z2_offload_config.json --seed 42 --data_path ./data/arxiv_mia_train_real.jsonl --epochs 2 --per_device_train_batch_size 50 --gradient_accumulation_steps 2 --lr 9e-4
+[2024-06-01 23:12:44,293] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 23:12:47,482] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [1]}
+[2024-06-01 23:12:47,482] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=1, node_rank=0
+[2024-06-01 23:12:47,482] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0]})
+[2024-06-01 23:12:47,482] [INFO] [launch.py:163:main] dist_world_size=1
+[2024-06-01 23:12:47,482] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=1
+[2024-06-01 23:12:47,484] [INFO] [launch.py:253:main] process 81844 spawned with command: ['/public/home/ljt/anaconda3/envs/zhliu/bin/python', '-u', 'src/ft_proxy_model_ds.py', '--local_rank=0', '--model_path', '/public/home/ljt/hf_models/TinyLlama-1.1B', '--deepspeed', './ds_configs/ds_z2_offload_config.json', '--seed', '42', '--data_path', './data/arxiv_mia_train_real.jsonl', '--epochs', '2', '--per_device_train_batch_size', '50', '--gradient_accumulation_steps', '2', '--lr', '9e-4']
+[2024-06-01 23:13:23,089] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 23:13:24,707] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-01 23:13:24,707] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+ninja: no work to do.
+Time to load cpu_adam op: 0.7568197250366211 seconds
+{'train_runtime': 12.7476, 'train_samples_per_second': 15.689, 'train_steps_per_second': 0.157, 'train_loss': 7.315080642700195, 'epoch': 2.0}
+[2024-06-01 23:14:02,559] [INFO] [launch.py:348:main] Process 81844 exits successfully.
+average dev auc: 0.4913
+
+MAX dev auc: 0.5711 in layer_10
+   test auc: 0.5825 in layer_10
+***********************
+learning rate: 1e-3
+***********************
+[2024-06-01 23:14:58,271] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 23:15:01,490] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected CUDA_VISIBLE_DEVICES=1: setting --include=localhost:1
+[2024-06-01 23:15:01,545] [INFO] [runner.py:568:main] cmd = /public/home/ljt/anaconda3/envs/zhliu/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None src/ft_proxy_model_ds.py --model_path /public/home/ljt/hf_models/TinyLlama-1.1B --deepspeed ./ds_configs/ds_z2_offload_config.json --seed 42 --data_path ./data/arxiv_mia_train_real.jsonl --epochs 2 --per_device_train_batch_size 50 --gradient_accumulation_steps 2 --lr 1e-3
+[2024-06-01 23:15:07,414] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 23:15:10,641] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [1]}
+[2024-06-01 23:15:10,641] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=1, node_rank=0
+[2024-06-01 23:15:10,641] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0]})
+[2024-06-01 23:15:10,641] [INFO] [launch.py:163:main] dist_world_size=1
+[2024-06-01 23:15:10,641] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=1
+[2024-06-01 23:15:10,642] [INFO] [launch.py:253:main] process 86557 spawned with command: ['/public/home/ljt/anaconda3/envs/zhliu/bin/python', '-u', 'src/ft_proxy_model_ds.py', '--local_rank=0', '--model_path', '/public/home/ljt/hf_models/TinyLlama-1.1B', '--deepspeed', './ds_configs/ds_z2_offload_config.json', '--seed', '42', '--data_path', './data/arxiv_mia_train_real.jsonl', '--epochs', '2', '--per_device_train_batch_size', '50', '--gradient_accumulation_steps', '2', '--lr', '1e-3']
+[2024-06-01 23:15:37,706] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-01 23:15:38,865] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-01 23:15:38,865] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+ninja: no work to do.
+Time to load cpu_adam op: 0.9003267288208008 seconds
+{'train_runtime': 12.756, 'train_samples_per_second': 15.679, 'train_steps_per_second': 0.157, 'train_loss': 7.531458854675293, 'epoch': 2.0}
+[2024-06-01 23:16:15,708] [INFO] [launch.py:348:main] Process 86557 exits successfully.
+average dev auc: 0.5033
+
+MAX dev auc: 0.5679 in layer_12
+   test auc: 0.5625 in layer_12
