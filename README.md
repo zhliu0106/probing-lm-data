@@ -12,7 +12,7 @@ In this study, we propose to **utilize the probing technique for pre-training da
 To evaluate various pre-training data detection methods in a more challenging scenario, we introduce ArxivMIA, a new benchmark comprising abstracts from the fields of Computer Science (CS) and Mathematics (Math) sourced from Arxiv.
 
 - ArxivMIA is avaliable in `data/arxiv_mia.jsonl`. 
-- You also can access WikiMIA directly on Hugging Face (TODO).
+- You also can access ArxivMIA directly on Hugging Face (TODO).
 
 ## Probing LMs for Pre-training Data Detection
 
