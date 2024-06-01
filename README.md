@@ -1,5 +1,5 @@
 # Probing Language Models for Pre-training Data Detection
-Official Implementation of "Probing Language Models for Pre-training Data Detection".
+Official Implementation of ACL-2024 main conference paper: "Probing Language Models for Pre-training Data Detection".
 
 ## Overview
 In this study, we propose to **utilize the probing technique for pre-training data detection** by examining the model's internal activations. Our method is simple and effective and leads to more trustworthy pre-training data detection. Additionally, we propose **ArxivMIA**, a new challenging benchmark comprising arxiv abstracts from Computer Science and Mathematics categories.
