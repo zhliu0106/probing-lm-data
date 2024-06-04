@@ -40,7 +40,14 @@ bash scripts/openllama_probe.sh > logs/openllama.log
 ```
 
 ## Citation
-TODO
-```bibtex
 
+```bibtex
+@misc{liu2024probing,
+      title={Probing Language Models for Pre-training Data Detection}, 
+      author={Zhenhua Liu and Tong Zhu and Chuanyuan Tan and Haonan Lu and Bing Liu and Wenliang Chen},
+      year={2024},
+      eprint={2406.01333},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
 ```
